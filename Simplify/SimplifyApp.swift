@@ -13,10 +13,9 @@ struct SimplifyApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            LoadingView().environment(\.managedObjectContext, persistentContainer.viewContext)
+            LoadingView().environment(\.managedObjectContext, persistentContainer.viewContext)
 
-            ContentView()
-                .environment(\.managedObjectContext, persistentContainer.viewContext)
+//            ContentView().environment(\.managedObjectContext, persistentContainer.viewContext)
 
         }
     }
