@@ -106,16 +106,24 @@ struct ContentView: View {
             }
         }
     }
+
+    
     @State private var dueDate = Date()
     @State private var showsheet: Bool = false
     @State private var showingDetail = false
     @Environment(\.dismiss) var dismiss
     @State private var selectedColor: Color = .blue
-
+    
+    @State var selectedDate = Date()
+    var dateClosedRange: ClosedRange<Date> {
+        let min = Calendar.current.date(byAdding: .day, value: 0, to: Date())!
+        let max = Calendar.current.date(byAdding: .day, value: 365, to: Date())!
+        return min...max
+    }
+    
     
     var body: some View {
-     
-//        Group{
+        
         VStack{
             VStack{
                 HStack(alignment: .top){
@@ -127,7 +135,8 @@ struct ContentView: View {
                             ScrollView{
                                 VStack {
                                     
-                                    DatePicker("Please_choose_a_date", selection: $dueDate)
+                                    DatePicker("Please_choose_a_date", selection: $dueDate,
+                                               in: dateClosedRange)
                                         .accessibilityLabel("Please_choose_a_date")
                                         .padding([.leading, .bottom, .trailing])
                                         .labelsHidden()
@@ -142,7 +151,7 @@ struct ContentView: View {
                                             .textFieldStyle(.roundedBorder)
                                             .accessibilityLabel("Enter_event_Name")
                                     }.padding()
-
+                                    
                                     Picker("Pick_a_color_for_the_event_borders", selection: $ColorsPickers) {
                                         ForEach(BordersColor.allCases) { thecolor in
                                             Text(thecolor.title).tag(thecolor)
@@ -152,7 +161,7 @@ struct ContentView: View {
                                     }.padding(.horizontal)
                                     
                                     Notification()
-
+                                    
                                     Button (action: {
                                         addEvent()
                                         
@@ -176,9 +185,9 @@ struct ContentView: View {
                         .font(.title3)
                         .foregroundColor(.accentColor)
                 }
-
                 
-                    
+                
+                
             }.padding()
             
             if(allEvents.isEmpty) {
@@ -199,10 +208,10 @@ struct ContentView: View {
                         Spacer()
                         
                     }
-
+                    
                 }
-                    
-                    
+                
+                
             } else {
                 
                 ZStack{
@@ -234,11 +243,12 @@ struct ContentView: View {
                                         Spacer()
                                     }.padding(.top)
                                     VStack{
-                                        Text(event.duedate!, style:.timer)
-                                            .font(.title)
+                                        HStack{
+                                            Text(event.duedate!, style:.relative)
+                                            Text("left_")
+                                        }.font(.title2)
                                             .padding(.top)
                                             .fontWeight(.bold)
-                                        
                                     }
                                 }
                             }.onDelete(perform: deleteEvent)
@@ -248,12 +258,9 @@ struct ContentView: View {
                     
                 }
             }
-                }
-            
-            
-//        }                            .navigationTitle("All Events")
-
+        }
     }
+ 
 }
 
 

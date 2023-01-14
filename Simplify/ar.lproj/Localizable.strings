@@ -1,0 +1,43 @@
+/*
+  Localizable.strings
+  CountDown
+
+  Created by Fatma Gazwani on 15/06/1444 AH.
+  
+*/
+"Hi"="مرحباً";
+"Event_Name:"="اسم الحدث:";
+"Event_Name"="اسم الحدث";
+"Pick_a_color_for_the_event_borders"="إختر لوناً لحدود الحدث";
+"No_Eevnts_Yet"="لا توجد أحداث بعد";
+"press_Add_to_add_a_new_event"="اضغط على إضافة لإضافة حدث جديد";
+"Add_a_new_event_from_the_Button_at_the_top_right"="أضف حدثاً جديداً من الزر أعلي اليسار";
+"Add_"="إضافة";
+"Please_choose_a_date"="الرجاء اختيار التاريخ";
+"Enter_event_Name"="أدخل اسم الحدث";
+"Pick_a_color_for_the_event_borders"="اختر لوناً لحدود الحدث";
+"Add_a_new_event"="إضافة حدث جديد";
+"Add_Event"="إضافة حدث";
+"Press_on_the_lists_to_view_their_information"="اضغط على القوائم لعرض معلوماتها";
+"Track_your_events_through_our_countdown_feature."=".تتبع الأحداث الخاصة بك من خلال ميزة العد التنازلي";
+"Enable_notification_to_get_reminder_of_your_events."="قم بتمكين الإشعارات للحصور على تذكير بأحداثك.";
+"Supports_Arabic_and_English_languages,_light_and_dark mode,_and_Voice_over."="يدعم العربية والإنجليزية و النمط الفاتح و الداكن و التعليق الصوتي.";
+"Track_"="تتبع";
+"Get_notified"="الحصول على الإشعارات";
+"Customize_"="Customize";
+"skip"="تخط";
+"Get_Started"="إبداء";
+"Red_"="أحمر";
+"Yellow"="أصفر";
+"Orange"="برتقالي";
+"Purple"="بنفسجي";
+"Blue"="أزرق";
+"Indigo"="أزرق داكن";
+"Green"="أخضر";
+"Mint"="أخضر مزرق";
+"Alert_"="تنبية";
+"Alert_Me"="نبهني";
+"left_"="متبقي";
+
+
+

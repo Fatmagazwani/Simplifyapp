@@ -39,7 +39,7 @@ enum OnbordingType: CaseIterable {
         case .track:
             return "Track your events through our countdown feature."
         case .notified:
-            return "Enable widgets and notification to get reminder of your events."
+            return "Enable notification to get reminder of your events."
         case .accessibility:
             return "Supports Arabic and English languages, light and dark mode, and Voice over."
         }

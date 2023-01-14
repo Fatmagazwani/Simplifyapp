@@ -20,13 +20,13 @@
 "Add_Event"="Add Event";
 "Press_on_the_lists_to_view_their_information"="Press on the lists to view their information";
 "Track_your_events_through_our_countdown_feature."="Track your events through our countdown feature.";
-"Enable_widgets_and_notification_to_get_reminder_of_your_events."="Enable widgets and notification to get reminder of your events.";
+"Enable_notification_to_get_reminder_of_your_events."="Enable notification to get reminder of your events.";
 "Supports_Arabic_and_English_languages,_light_and_dark mode,_and_Voice_over."="Supports Arabic and English languages, light and dark mode, and Voice over.";
-"Track"="Track";
+"Track_"="Track";
 "Get_notified"="Get notified";
-"Customize"="Customize";
-"skip"="skip";
-"Get_Started"="Get Started";
+"Customize_"="Customize";
+"skip_"="skip";
+"Get_Started_"="Get Started";
 "Red"="Red";
 "Yellow"="Yellow";
 "Orange"="Orange";
@@ -37,4 +37,5 @@
 "Mint"="Mint";
 "Alert_"="Alert";
 "Alert_Me"="Alert Me";
+"left_"="left";
 

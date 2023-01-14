@@ -37,14 +37,14 @@ class NotificationManager{
     }
 }
 struct Notification: View {
-    @State var selectedDate: Date = Date()
+    @State var duedate: Date = Date()
     var body: some View {
         VStack (spacing : 20) {
-            DatePicker("Alert_" , selection: $selectedDate)
+            DatePicker("Alert_" , selection: $duedate)
                 .padding(.horizontal)
             
             Button("Alert_Me"){
-                let components = Calendar.current.dateComponents([.hour , .minute], from: selectedDate)
+                let components = Calendar.current.dateComponents([.hour , .minute], from: duedate)
                 
                 let hours = components.hour ?? 0
                 let minute = components.minute ?? 0
