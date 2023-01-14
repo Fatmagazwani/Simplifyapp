@@ -1,4 +1,4 @@
-# Simplifyapp
+# Simplify
 <hr>
 
 ## Our Big idea :
@@ -46,7 +46,9 @@ Make an inclusive solution that helps people keep track of their  schedule .
  
 
 ### * Solotion:  
- An App that provides a way for Sara who wants to keep track of her deadlines/events by creating and  tracking countdowns for deadlines/events
+ An App that provides a way for Sara who wants to keep track of her deadlines/events by creating 
+ and  tracking countdowns for deadlines/events
+ 
 ### * Features :
 1. Countdown to the event/deadline day/time .
 2. Accessibility - Voice over .
