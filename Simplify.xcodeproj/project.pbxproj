@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		AD70F96529731DEF00A3796F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD70F96729731DEF00A3796F /* Localizable.strings */; };
+		AD70F96C2976EB3F00A3796F /* EvensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70F96B2976EB3F00A3796F /* EvensViewModel.swift */; };
+		AD70F96E2977EE8100A3796F /* AddingEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70F96D2977EE8100A3796F /* AddingEventView.swift */; };
+		AD70F970297860F700A3796F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70F96F297860F700A3796F /* EmptyView.swift */; };
+		AD70F972297861CC00A3796F /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70F971297861CC00A3796F /* EventsView.swift */; };
+		AD70F9742978634400A3796F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70F9732978634400A3796F /* ListView.swift */; };
+		AD70F9762978659700A3796F /* AddingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD70F9752978659700A3796F /* AddingEvent.swift */; };
 		AD9CAF242972A5A7001A874F /* SimplifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9CAF232972A5A7001A874F /* SimplifyApp.swift */; };
 		AD9CAF262972A5A7001A874F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9CAF252972A5A7001A874F /* ContentView.swift */; };
 		AD9CAF282972A5A8001A874F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD9CAF272972A5A8001A874F /* Assets.xcassets */; };
@@ -18,11 +24,20 @@
 		AD9CAF3B2972A71C001A874F /* OnbordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9CAF372972A71C001A874F /* OnbordingView.swift */; };
 		AD9CAF3C2972A71C001A874F /* SingleOnbordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9CAF382972A71C001A874F /* SingleOnbordingView.swift */; };
 		AD9CAF3D2972A71C001A874F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9CAF392972A71C001A874F /* LoadingView.swift */; };
+		ADD4982029979B71005D3D36 /* RoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD4981F29979B71005D3D36 /* RoundedShape.swift */; };
+		ADD498222997A80E005D3D36 /* NotifiButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD498212997A80E005D3D36 /* NotifiButtonView.swift */; };
+		ADD498242997B083005D3D36 /* MyColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD498232997B083005D3D36 /* MyColorPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AD70F96629731DEF00A3796F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD70F96829731DF300A3796F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD70F96B2976EB3F00A3796F /* EvensViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvensViewModel.swift; sourceTree = "<group>"; };
+		AD70F96D2977EE8100A3796F /* AddingEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingEventView.swift; sourceTree = "<group>"; };
+		AD70F96F297860F700A3796F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		AD70F971297861CC00A3796F /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
+		AD70F9732978634400A3796F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		AD70F9752978659700A3796F /* AddingEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingEvent.swift; sourceTree = "<group>"; };
 		AD9CAF202972A5A7001A874F /* Simplify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simplify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD9CAF232972A5A7001A874F /* SimplifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplifyApp.swift; sourceTree = "<group>"; };
 		AD9CAF252972A5A7001A874F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +49,9 @@
 		AD9CAF372972A71C001A874F /* OnbordingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnbordingView.swift; sourceTree = "<group>"; };
 		AD9CAF382972A71C001A874F /* SingleOnbordingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleOnbordingView.swift; sourceTree = "<group>"; };
 		AD9CAF392972A71C001A874F /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		ADD4981F29979B71005D3D36 /* RoundedShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShape.swift; sourceTree = "<group>"; };
+		ADD498212997A80E005D3D36 /* NotifiButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifiButtonView.swift; sourceTree = "<group>"; };
+		ADD498232997B083005D3D36 /* MyColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +65,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD2B10F82985270900729B2F /* BSide */ = {
+			isa = PBXGroup;
+			children = (
+				AD70F9752978659700A3796F /* AddingEvent.swift */,
+				AD70F96D2977EE8100A3796F /* AddingEventView.swift */,
+				AD70F971297861CC00A3796F /* EventsView.swift */,
+				AD70F9732978634400A3796F /* ListView.swift */,
+				ADD4981F29979B71005D3D36 /* RoundedShape.swift */,
+				AD70F96F297860F700A3796F /* EmptyView.swift */,
+				ADD498232997B083005D3D36 /* MyColorPicker.swift */,
+			);
+			path = BSide;
+			sourceTree = "<group>";
+		};
+		AD2B10F92985273100729B2F /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				AD9CAF392972A71C001A874F /* LoadingView.swift */,
+				AD9CAF372972A71C001A874F /* OnbordingView.swift */,
+				AD9CAF382972A71C001A874F /* SingleOnbordingView.swift */,
+				ADD498212997A80E005D3D36 /* NotifiButtonView.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
 		AD9CAF172972A5A7001A874F = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +111,9 @@
 			children = (
 				AD9CAF232972A5A7001A874F /* SimplifyApp.swift */,
 				AD9CAF252972A5A7001A874F /* ContentView.swift */,
-				AD9CAF392972A71C001A874F /* LoadingView.swift */,
-				AD9CAF372972A71C001A874F /* OnbordingView.swift */,
-				AD9CAF382972A71C001A874F /* SingleOnbordingView.swift */,
+				AD70F96B2976EB3F00A3796F /* EvensViewModel.swift */,
+				AD2B10F82985270900729B2F /* BSide */,
+				AD2B10F92985273100729B2F /* LoadingView */,
 				AD9CAF362972A71C001A874F /* Notification.swift */,
 				AD9CAF2C2972A5A8001A874F /* Persistence.swift */,
 				AD9CAF272972A5A8001A874F /* Assets.xcassets */,
@@ -162,13 +205,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD9CAF2D2972A5A8001A874F /* Persistence.swift in Sources */,
+				ADD498242997B083005D3D36 /* MyColorPicker.swift in Sources */,
+				AD70F9742978634400A3796F /* ListView.swift in Sources */,
 				AD9CAF3A2972A71C001A874F /* Notification.swift in Sources */,
+				AD70F970297860F700A3796F /* EmptyView.swift in Sources */,
+				AD70F96C2976EB3F00A3796F /* EvensViewModel.swift in Sources */,
+				ADD4982029979B71005D3D36 /* RoundedShape.swift in Sources */,
 				AD9CAF262972A5A7001A874F /* ContentView.swift in Sources */,
 				AD9CAF302972A5A8001A874F /* Simplify.xcdatamodeld in Sources */,
 				AD9CAF242972A5A7001A874F /* SimplifyApp.swift in Sources */,
+				AD70F96E2977EE8100A3796F /* AddingEventView.swift in Sources */,
 				AD9CAF3D2972A71C001A874F /* LoadingView.swift in Sources */,
+				ADD498222997A80E005D3D36 /* NotifiButtonView.swift in Sources */,
 				AD9CAF3C2972A71C001A874F /* SingleOnbordingView.swift in Sources */,
 				AD9CAF3B2972A71C001A874F /* OnbordingView.swift in Sources */,
+				AD70F972297861CC00A3796F /* EventsView.swift in Sources */,
+				AD70F9762978659700A3796F /* AddingEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 import UserNotifications
 
-
 enum BordersColor: String, Identifiable, CaseIterable {
     var id: UUID {
         return UUID()
@@ -23,7 +22,6 @@ enum BordersColor: String, Identifiable, CaseIterable {
     case green = "green"
     case mint = "mint"
 }
-
 extension BordersColor {
     var title: String {
         switch self {
@@ -43,7 +41,6 @@ extension BordersColor {
             return "Green"
         case .mint:
             return "Mint"
-            
         }
     }
 }
@@ -106,21 +103,17 @@ struct ContentView: View {
             }
         }
     }
-
-    
     @State private var dueDate = Date()
-    @State private var showsheet: Bool = false
     @State private var showingDetail = false
-    @Environment(\.dismiss) var dismiss
-    @State private var selectedColor: Color = .blue
-    
     @State var selectedDate = Date()
+    @State private var selectedColor: Color = .blue
+    @Environment(\.dismiss) var dismiss
     var dateClosedRange: ClosedRange<Date> {
         let min = Calendar.current.date(byAdding: .day, value: 0, to: Date())!
         let max = Calendar.current.date(byAdding: .day, value: 365, to: Date())!
         return min...max
     }
-    
+    var characterLimit = 20
     
     var body: some View {
         
@@ -130,54 +123,61 @@ struct ContentView: View {
                     Spacer()
                     Button("Add_") {
                         showingDetail = true
+                        
                     }.accessibilityLabel("Addـaـnewـevent")
                         .sheet(isPresented: $showingDetail) {
-                            ScrollView{
-                                VStack {
+                            VStack {
+                                
+                                DatePicker("Please_choose_a_date", selection: $dueDate,
+                                           in: dateClosedRange)
+                                .accessibilityLabel("Please_choose_a_date")
+                                .padding([.leading, .bottom, .trailing])
+                                .labelsHidden()
+                                .datePickerStyle(.graphical)
+                                
+                                
+                                VStack(alignment: .leading){
+                                    Text("Event_Name:")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                    TextField("Event_Name", text: $name)
+                                        .limitTextLength($name, to: 20)
+                                        .textFieldStyle(.roundedBorder)
+                                        .accessibilityLabel("Enter_event_Name")
                                     
-                                    DatePicker("Please_choose_a_date", selection: $dueDate,
-                                               in: dateClosedRange)
-                                        .accessibilityLabel("Please_choose_a_date")
-                                        .padding([.leading, .bottom, .trailing])
-                                        .labelsHidden()
-                                        .datePickerStyle(.graphical)
-                                    
-                                    
-                                    VStack(alignment: .leading){
-                                        Text("Event_Name:")
-                                            .font(.title3)
-                                            .fontWeight(.semibold)
-                                        TextField("Event_Name", text: $name)
-                                            .textFieldStyle(.roundedBorder)
-                                            .accessibilityLabel("Enter_event_Name")
-                                    }.padding()
-                                    
+                                }.padding(.horizontal)
+                                    .padding(.bottom)
+                                HStack{
+                                    Text("Color:")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                    Spacer()
                                     Picker("Pick_a_color_for_the_event_borders", selection: $ColorsPickers) {
                                         ForEach(BordersColor.allCases) { thecolor in
                                             Text(thecolor.title).tag(thecolor)
                                                 .fontWeight(.bold)
                                             
-                                        }.pickerStyle(.segmented)
-                                    }.padding(.horizontal)
-                                    
-                                    Notification()
-                                    
-                                    Button (action: {
-                                        addEvent()
-                                        
-                                    }, label: {
-                                        Text("Add_Event")
-                                            .accessibilityLabel("Add_a_new_event")
-                                            .font(.title3)
-                                            .fontWeight(.semibold)
-                                            .padding (16.0)
-                                            .background(Color.accentColor)
-                                            .foregroundColor(.white)
-                                            .clipShape(RoundedRectangle (cornerRadius:10.0, style: .continuous))
-                                    }).onTapGesture {
-                                        dismiss()
-                                    }
-                                }
+                                        }
+                                    }.padding(.leading)
+                                        .pickerStyle(.menu)
+                                }.padding(.leading)
+                                //                                MyColorPicker(ColorsPickers: $selectedColor)
+                                
+                                Notification()
+                                
+                                Button (action: {
+                                    showingDetail = false
+                                    addEvent()
+                                }, label: {
+                                    Text("Add_Event")
+                                        .accessibilityLabel("Add_a_new_event")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                        .padding (16.0)
+                                        .background(Color.accentColor)
+                                        .foregroundColor(.white)
+                                        .clipShape(RoundedRectangle (cornerRadius:10.0, style: .continuous))
+                                })
                             }
                         }
                         .padding(.top)
@@ -185,15 +185,19 @@ struct ContentView: View {
                         .font(.title3)
                         .foregroundColor(.accentColor)
                 }
-                
-                
-                
-            }.padding()
+            }
+            //            .padding()
             
             if(allEvents.isEmpty) {
                 ZStack{
                     VStack{
-                        Spacer()
+                            Image("track")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                            .padding(.top, 150)
+                            .opacity(0.5)
+
                         Text("No_Eevnts_Yet")
                             .font(.largeTitle)
                             .foregroundColor(.gray)
@@ -204,30 +208,26 @@ struct ContentView: View {
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
                         .accessibilityLabel("Add_a_new_event_from_the_Button_at_the_top_right")
-                        
                         Spacer()
-                        
                     }
-                    
                 }
-                
-                
             } else {
                 
                 ZStack{
-                    VStack{
+                    NavigationView{
                         List{
                             ForEach(allEvents) { event in
                                 ZStack{
-                                    RoundedRectangle(cornerRadius: 13)
-                                        .fill(theSelectedColor(event.thecolor!))
-                                        .opacity(0.1)
-                                        .frame(height: 120)
-                                        .shadow(radius: 2, x: 5)
-                                    RoundedRectangle(cornerRadius: 13)
-                                        .stroke(theSelectedColor(event.thecolor!), lineWidth: 2)
-                                        .frame(height: 120)
                                     
+                                    RoundedRectangle(cornerRadius: 13)
+                                        .fill(Color("White"))
+                                        .frame(height: 110)
+                                        .shadow(radius: 3)
+                                    
+                                    RoundedShape(corners: [.topRight, .topLeft])
+                                        .frame(height: 30)
+                                        .padding(.bottom, 91)
+                                        .foregroundColor(theSelectedColor(event.thecolor!))
                                     
                                     VStack(alignment: .leading){
                                         HStack(alignment: .top){
@@ -238,40 +238,52 @@ struct ContentView: View {
                                         }.padding(.horizontal)
                                             .font(.caption)
                                             .fontWeight(.semibold)
-                                            .foregroundColor(Color("Black"))
+                                            .foregroundColor(Color("White"))
                                         
                                         Spacer()
                                     }.padding(.top)
+                                    
                                     VStack{
                                         HStack{
-                                            Text(event.duedate!, style:.relative)
-                                            Text("left_")
+                                            
+                                            if event.duedate! < Date() {
+                                                Text("Event_ended")
+                                            } else {
+                                                Text(event.duedate!, style:.relative)
+                                                Text("left_")
+                                            }
                                         }.font(.title2)
                                             .padding(.top)
                                             .fontWeight(.bold)
+                                            .foregroundColor((theSelectedColor(event.thecolor!)))
                                     }
                                 }
-                            }.onDelete(perform: deleteEvent)
+                                
+                            }
+                            
+                            .onDelete(perform: deleteEvent)
+                            .listRowSeparator(.hidden)
+                            
                         }.accessibilityLabel("Press_on_the_lists_to_view_their_information")
                             .scrollContentBackground(.hidden)
+                            .listStyle(PlainListStyle())
+                        //                            .navigationTitle("Simplify")
+                        //                            .navigationBarTitleDisplayMode(.inline)
+                        
                     }
                     
                 }
             }
         }
     }
- 
+    
 }
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let persistentContainer = CoreDataManager.shared.persistentContainer
         ContentView().environment(\.managedObjectContext, persistentContainer.viewContext)
     }
 }
-
 extension Date {
     func getFormattedDate(format: String) -> String {
         let dateformat = DateFormatter()
@@ -280,4 +292,23 @@ extension Date {
     }
 }
 
+struct TextLengthLimiter: ViewModifier {
+  @Binding var text: String
+  let maxLength: Int
+
+  func body(content: Content) -> some View {
+    content
+      .onReceive(text.publisher.collect()) { output in
+        text = String(output.prefix(maxLength)) // HERE
+      }
+  }
+}
+
+extension TextField {
+  func limitTextLength(_ text: Binding<String>,
+                       to maxLength: Int) -> some View {
+    self.modifier(TextLengthLimiter(text: text,
+                                    maxLength: maxLength))
+  }
+}
 

@@ -39,10 +39,11 @@ class NotificationManager{
 struct Notification: View {
     @State var duedate: Date = Date()
     var body: some View {
-        VStack (spacing : 20) {
+        HStack {
             DatePicker("Alert_" , selection: $duedate)
+                .labelsHidden()
                 .padding(.horizontal)
-            
+            Spacer()
             Button("Alert_Me"){
                 let components = Calendar.current.dateComponents([.hour , .minute], from: duedate)
                 
@@ -50,8 +51,8 @@ struct Notification: View {
                 let minute = components.minute ?? 0
 
                 NotificationManager.instance.scheduleNotification(hour: hours, minute: minute)
-            }
-        }.padding(.horizontal)
+            }.padding(.trailing)
+        }
         .onAppear{
             UIApplication.shared.applicationIconBadgeNumber = 0
         }

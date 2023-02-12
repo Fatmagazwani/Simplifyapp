@@ -8,15 +8,17 @@
 import SwiftUI
 
 @main
-struct SimplifyApp: App {
-    let persistentContainer = CoreDataManager.shared.persistentContainer
 
-    var body: some Scene {
-        WindowGroup {
+    struct SimplifyApp: App {
+        
+        var body: some Scene {
+            WindowGroup {
+                let persistentContainer = CoreDataManager.shared.persistentContainer
             LoadingView().environment(\.managedObjectContext, persistentContainer.viewContext)
-
-//            ContentView().environment(\.managedObjectContext, persistentContainer.viewContext)
-
+//                ContentView().environment(\.managedObjectContext, persistentContainer.viewContext)
+//              EventsView().environment(\.managedObjectContext, persistentContainer.viewContext)
+                
+            }
         }
     }
-}
+

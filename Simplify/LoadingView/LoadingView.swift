@@ -21,43 +21,39 @@ struct LoadingView: View {
             if !isUserOnboarded {
                 OnbordingView()
             } else {
-//                AddingEvents()
+                //                AddingEvents()
                 ContentView()
             }
         } else {
-
-                
-                Image("logo")
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(0.5, contentMode: .fit)
-                    .scaleEffect(size)
-                    .opacity(opacity)
-                    .onAppear {
-                        withAnimation(.easeIn(duration: 1.2)) {
-                            self.size = 1.00
-                            self.opacity = 1.00
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .aspectRatio(0.3, contentMode: .fit)
+                .scaleEffect(size)
+                .opacity(opacity)
+                .onAppear {
+                    withAnimation(.easeIn(duration: 1.2)) {
+                        self.size = 1.00
+                        self.opacity = 1.00
+                    }
+                }
+            
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
+                        withAnimation {
+                            self.isActive = true
                         }
                     }
-                
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
-                            withAnimation {
-                                self.isActive = true
-                            }
-                        
-                    }
-            }
+                }
         }
-        
-        
     }
+    
 }
 
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
         let persistentContainer = CoreDataManager.shared.persistentContainer
-
+        
         LoadingView().environment(\.managedObjectContext, persistentContainer.viewContext)
     }
 }

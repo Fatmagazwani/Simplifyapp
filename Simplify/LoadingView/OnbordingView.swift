@@ -9,15 +9,15 @@ import SwiftUI
 
 enum OnbordingType: CaseIterable {
     case track
-    case notified
+//    case notified
     case accessibility
     
     var image: String {
         switch self {
         case .track:
             return "track"
-        case .notified:
-            return "notified"
+//        case .notified:
+//            return "notified"
         case .accessibility:
             return "accessibility"
         }
@@ -27,8 +27,8 @@ enum OnbordingType: CaseIterable {
         switch self {
         case .track:
             return "Track"
-        case .notified:
-            return "Get notified"
+//        case .notified:
+//            return "Get notified"
         case .accessibility:
             return "Customize"
         }
@@ -38,8 +38,8 @@ enum OnbordingType: CaseIterable {
         switch self {
         case .track:
             return "Track your events through our countdown feature."
-        case .notified:
-            return "Enable notification to get reminder of your events."
+//        case .notified:
+//            return "Enable notification to get reminder of your events."
         case .accessibility:
             return "Supports Arabic and English languages, light and dark mode, and Voice over."
         }

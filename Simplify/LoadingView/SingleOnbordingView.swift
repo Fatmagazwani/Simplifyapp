@@ -22,7 +22,9 @@ struct SingleOnbordingView: View {
                 .frame(width: 300, height: 300)
             
             Text(onbordingType.title)
-                .font(.title).bold()
+                .font(.title)
+                .bold()
+                .foregroundColor(.accentColor)
             
             Text(onbordingType.description)
                 .multilineTextAlignment(.center)
