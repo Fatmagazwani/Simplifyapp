@@ -38,21 +38,38 @@ class NotificationManager{
 }
 struct Notification: View {
     @State var duedate: Date = Date()
+    @State private var isAlertOn = false
+
     var body: some View {
         HStack {
             DatePicker("Alert_" , selection: $duedate)
                 .labelsHidden()
                 .padding(.horizontal)
             Spacer()
-            Button("Alert_Me"){
+            Button(action: {
                 let components = Calendar.current.dateComponents([.hour , .minute], from: duedate)
                 
                 let hours = components.hour ?? 0
                 let minute = components.minute ?? 0
 
                 NotificationManager.instance.scheduleNotification(hour: hours, minute: minute)
+
+                self.isAlertOn.toggle()
+            }) {
+                Image(systemName: isAlertOn ? "bell.fill" : "bell")
+                    .resizable()
+                    .frame(width: 25, height: 28)
             }.padding(.trailing)
-        }
+            
+//            Button("Alert_Me"){
+//                let components = Calendar.current.dateComponents([.hour , .minute], from: duedate)
+//
+//                let hours = components.hour ?? 0
+//                let minute = components.minute ?? 0
+//
+//                NotificationManager.instance.scheduleNotification(hour: hours, minute: minute)
+//            }.padding(.trailing)
+        }.padding(.trailing)
         .onAppear{
             UIApplication.shared.applicationIconBadgeNumber = 0
         }

@@ -37,7 +37,7 @@ enum OnbordingType: CaseIterable {
     var description: String {
         switch self {
         case .track:
-            return "Track your events through our countdown feature."
+            return "Track_your_events_through_our_countdown_feature."
 //        case .notified:
 //            return "Enable notification to get reminder of your events."
         case .accessibility:

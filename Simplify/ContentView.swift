@@ -87,7 +87,7 @@ struct ContentView: View {
         case .mint:
             return Color.mint
         case .none:
-            return Color.blue
+            return Color.orange
         }
     }
     
@@ -103,6 +103,29 @@ struct ContentView: View {
             }
         }
     }
+    
+
+
+    
+    
+    func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Event Reminder"
+        content.body = name
+        content.sound = UNNotificationSound.default
+        
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: dueDate)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "eventReminder", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error scheduling notification: \(error)")
+            }
+        }
+    }
+    
     @State private var dueDate = Date()
     @State private var showingDetail = false
     @State var selectedDate = Date()
@@ -131,7 +154,7 @@ struct ContentView: View {
                                 DatePicker("Please_choose_a_date", selection: $dueDate,
                                            in: dateClosedRange)
                                 .accessibilityLabel("Please_choose_a_date")
-                                .padding([.leading, .bottom, .trailing])
+                                .padding([.leading, .trailing])
                                 .labelsHidden()
                                 .datePickerStyle(.graphical)
                                 
@@ -148,7 +171,7 @@ struct ContentView: View {
                                 }.padding(.horizontal)
                                     .padding(.bottom)
                                 HStack{
-                                    Text("Color:")
+                                    Text("Col_or:")
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                     Spacer()
@@ -161,13 +184,13 @@ struct ContentView: View {
                                     }.padding(.leading)
                                         .pickerStyle(.menu)
                                 }.padding(.leading)
-                                //                                MyColorPicker(ColorsPickers: $selectedColor)
-                                
-                                Notification()
-                                
+                                    .padding(.bottom)
+
                                 Button (action: {
                                     showingDetail = false
                                     addEvent()
+                                    scheduleNotification()
+
                                 }, label: {
                                     Text("Add_Event")
                                         .accessibilityLabel("Add_a_new_event")
@@ -302,6 +325,7 @@ struct TextLengthLimiter: ViewModifier {
         text = String(output.prefix(maxLength)) // HERE
       }
   }
+
 }
 
 extension TextField {

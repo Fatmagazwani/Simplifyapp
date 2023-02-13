@@ -16,7 +16,7 @@ struct SingleOnbordingView: View {
     var body: some View {
         
         VStack(spacing:20) {
-            Image(colorScheme == .light ? onbordingType.image : onbordingType.image + "_dark")
+            Image(colorScheme == .light ? onbordingType.image : onbordingType.image)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
@@ -36,7 +36,7 @@ struct SingleOnbordingView: View {
                         isUserOnboarded = true
                     }
                 } label: {
-                    Text("Get_Started")
+                    Text("Get_Started_")
                         .font(.headline)
                         .padding()
                         .foregroundColor(colorScheme == .light ? .white : .black)

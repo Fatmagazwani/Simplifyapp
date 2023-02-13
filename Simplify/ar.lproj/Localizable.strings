@@ -21,12 +21,12 @@
 "Press_on_the_lists_to_view_their_information"="اضغط على القوائم لعرض معلوماتها";
 "Track_your_events_through_our_countdown_feature."=".تتبع الأحداث الخاصة بك من خلال ميزة العد التنازلي";
 "Enable_notification_to_get_reminder_of_your_events."="قم بتمكين الإشعارات للحصور على تذكير بأحداثك.";
-"Supports_Arabic_and_English_languages,_light_and_dark mode,_and_Voice_over."="يدعم العربية والإنجليزية و النمط الفاتح و الداكن و التعليق الصوتي.";
+"Supports Arabic and English languages, light and dark mode, and Voice over."="يدعم العربية والإنجليزية و النمط الفاتح و الداكن و التعليق الصوتي.";
 "Track_"="تتبع";
 "Get_notified"="الحصول على الإشعارات";
 "Customize_"="Customize";
 "skip"="تخط";
-"Get_Started"="إبداء";
+"Get_Started_"="إبداء";
 "Red_"="أحمر";
 "Yellow"="أصفر";
 "Orange"="برتقالي";
@@ -39,6 +39,8 @@
 "Alert_Me"="نبهني";
 "left_"="متبقي";
 "Event_ended"="انتهى الحدث";
+"Col_or:"="اللون:";
+
 
 
 
